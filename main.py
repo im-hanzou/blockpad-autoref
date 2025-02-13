@@ -152,7 +152,7 @@ def try_verify_email(headers, verification_code, email, proxy, gmail_handler):
     for attempt in range(MAX_VERIFY_ATTEMPTS):
         try:
             verify_response = requests.post(
-                'https://api2.blockpad.fun/api/auth/verify-email',
+                'https://api3.blockpad.fun/api/auth/verify-email',
                 headers=headers,
                 json={"verificationCode": verification_code},
                 proxies=proxy,
@@ -200,7 +200,7 @@ def register_account(referral_code, gmail_handler, proxy_manager):
     
     try:
         response = requests.post(
-            'https://api2.blockpad.fun/api/auth/register',
+            'https://api3.blockpad.fun/api/auth/register',
             headers=headers,
             json=register_data,
             proxies=proxy,
