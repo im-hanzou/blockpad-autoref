@@ -1,0 +1,5 @@
+requests
+names
+fake-useragent
+colorama
+python-dotenv
