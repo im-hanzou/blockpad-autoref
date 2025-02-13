@@ -1,5 +1,6 @@
 # Blockpad Testnet Autoreferral
 Blockpad Testnet autoreferral using gmail imap and proxies
+- Another script, [Blockpad Automate](https://github.com/im-hanzou/blockpad-automate)
 ## Tools and components required
 1. Blockpad Account, Register here: [https://testnet.blockpad.fun/register](https://testnet.blockpad.fun/register?ref=TZSXOS)
 2. Blockpad Account Referral code, ex: `TZSXOS`
