@@ -2,7 +2,7 @@
 Blockpad Testnet autoreferral using gmail imap and proxies
 - Another script, [Blockpad Automate](https://github.com/im-hanzou/blockpad-automate)
 ## Tools and components required
-1. Blockpad Account, Register here: [https://testnet.blockpad.fun/register](https://testnet.blockpad.fun/register?ref=TZSXOS)
+1. Blockpad Account, Register here: [https://testnet.blockpad.fun/register](https://testnet.blockpad.fun/register?ref=V779JC)
 2. Blockpad Account Referral code, ex: `TZSXOS`
 3. Gmail IMAP Accounts, Tutorial how to get your imap credentials, here: [YouTube](https://www.youtube.com/watch?v=pgoLc7TuHi8&ab_channel=TheKingofOnlineTools)
 4. VPS or RDP (OPTIONAL)
