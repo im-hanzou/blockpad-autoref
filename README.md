@@ -3,7 +3,7 @@ Blockpad Testnet autoreferral using gmail imap and proxies
 - Another script, [Blockpad Automate](https://github.com/im-hanzou/blockpad-automate)
 ## Tools and components required
 1. Blockpad Account, Register here: [https://testnet.blockpad.fun/register](https://testnet.blockpad.fun/register?ref=V779JC)
-2. Blockpad Account Referral code, ex: `TZSXOS`
+2. Blockpad Account Referral code, ex: `V779JC`
 3. Gmail IMAP Accounts, Tutorial how to get your imap credentials, here: [YouTube](https://www.youtube.com/watch?v=pgoLc7TuHi8&ab_channel=TheKingofOnlineTools)
 4. VPS or RDP (OPTIONAL)
 ### Buy Proxies
@@ -62,7 +62,7 @@ python main.py
 ```bash
 python3 main.py
 ```
-- Then insert your Referral Code, ex: `TZSXOS`
+- Then insert your Referral Code, ex: `V779JC`
 # Notes
 - Run this bot, use my referral code if you don't have one.
 - You can just run this bot at your own risk, I'm not responsible for any loss or damage caused by this bot.
