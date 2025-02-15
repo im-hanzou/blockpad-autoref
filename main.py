@@ -12,6 +12,7 @@ from colorama import init, Fore, Style
 from dotenv import load_dotenv
 import time
 import email.utils
+from twocaptcha import TwoCaptcha
 
 init()
 
@@ -54,6 +55,25 @@ class ProxyManager:
             'http': f'{self.current_proxy}',
             'https': f'{self.current_proxy}'
         }
+
+class CaptchaSolver:
+    def __init__(self, api_key):
+        self.solver = TwoCaptcha(api_key)
+        self.site_key = "6LeLFdcqAAAAANR5eO7sNEKMmWGYhrBIjwxRpjnY"
+        self.url = "https://testnet.blockpad.fun"
+
+    def solve_captcha(self):
+        try:
+            Logger.log("Solving reCAPTCHA...", Fore.YELLOW)
+            result = self.solver.recaptcha(
+                sitekey=self.site_key,
+                url=self.url
+            )
+            Logger.log("reCAPTCHA solved successfully!", Fore.GREEN)
+            return result['code']
+        except Exception as e:
+            Logger.log(f"Error solving captcha: {e}", Fore.RED)
+            return None
 
 class GmailIMAP:
     def __init__(self, email_address, password):
@@ -181,7 +201,7 @@ def try_verify_email(headers, verification_code, email, proxy, gmail_handler):
                 Logger.log(f"All verification attempts failed with error: {e}", Fore.RED)
     return None
 
-def register_account(referral_code, gmail_handler, proxy_manager):
+def register_account(referral_code, gmail_handler, proxy_manager, captcha_solver):
     proxy = proxy_manager.get_random_proxy()
     headers = get_headers()
     
@@ -191,11 +211,17 @@ def register_account(referral_code, gmail_handler, proxy_manager):
     base_email = EMAIL_ADDRESS.split('@')[0]
     email = f"{base_email}+{email_suffix}@gmail.com"
     
+    captcha_token = captcha_solver.solve_captcha()
+    if not captcha_token:
+        Logger.log("Failed to solve captcha", Fore.RED)
+        return None
+    
     register_data = {
         "username": username,
         "email": email,
         "password": password,
-        "referralCode": referral_code
+        "referralCode": referral_code,
+        "recaptchaToken": captcha_token
     }
     
     try:
@@ -250,13 +276,15 @@ def main():
     global EMAIL_ADDRESS
     EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
     PASSWORD = os.getenv("PASSWORD")
+    CAPTCHA_KEY = os.getenv("2CAPTCHA_KEY")
     
-    if not EMAIL_ADDRESS or not PASSWORD:
-        Logger.log("Please set EMAIL_ADDRESS and PASSWORD in .env file", Fore.RED)
+    if not all([EMAIL_ADDRESS, PASSWORD, CAPTCHA_KEY]):
+        Logger.log("Please set EMAIL_ADDRESS, PASSWORD, and 2CAPTCHAKEY in .env file", Fore.RED)
         return
     
     gmail_handler = GmailIMAP(EMAIL_ADDRESS, PASSWORD)
     proxy_manager = ProxyManager()
+    captcha_solver = CaptchaSolver(CAPTCHA_KEY)
     
     if not proxy_manager.proxies:
         Logger.log("No proxies found in proxies.txt", Fore.RED)
@@ -269,7 +297,7 @@ def main():
         try:
             Logger.account_number += 1
             Logger.log("Processing new account", Fore.CYAN)
-            result = register_account(referral_code, gmail_handler, proxy_manager)
+            result = register_account(referral_code, gmail_handler, proxy_manager, captcha_solver)
             
             if result:
                 username, password, email, token = result
