@@ -279,7 +279,7 @@ def main():
     CAPTCHA_KEY = os.getenv("2CAPTCHA_KEY")
     
     if not all([EMAIL_ADDRESS, PASSWORD, CAPTCHA_KEY]):
-        Logger.log("Please set EMAIL_ADDRESS, PASSWORD, and 2CAPTCHAKEY in .env file", Fore.RED)
+        Logger.log("Please set EMAIL_ADDRESS, PASSWORD, and 2CAPTCHA_KEY in .env file", Fore.RED)
         return
     
     gmail_handler = GmailIMAP(EMAIL_ADDRESS, PASSWORD)
