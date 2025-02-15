@@ -4,8 +4,9 @@ Blockpad Testnet autoreferral using gmail imap and proxies
 ## Tools and components required
 1. Blockpad Account, Register here: [https://testnet.blockpad.fun/register](https://testnet.blockpad.fun/register?ref=V779JC)
 2. Blockpad Account Referral code, ex: `V779JC`
-3. Gmail IMAP Accounts, Tutorial how to get your imap credentials, here: [YouTube](https://www.youtube.com/watch?v=pgoLc7TuHi8&ab_channel=TheKingofOnlineTools)
-4. VPS or RDP (OPTIONAL)
+3. [2Captcha](https://2captcha.com/?from=24541144) API keys, you need to recharge credits. Register here: [2captcha.com](https://2captcha.com/?from=24541144)
+4. Gmail IMAP Accounts, Tutorial how to get your imap credentials, here: [YouTube](https://www.youtube.com/watch?v=pgoLc7TuHi8&ab_channel=TheKingofOnlineTools)
+5. VPS or RDP (OPTIONAL)
 ### Buy Proxies
 - Free Proxies Static Residental: 
 1. [WebShare](https://www.webshare.io/?referral_code=p7k7whpdu2jg)
@@ -43,10 +44,11 @@ pip install -r requirements.txt
 pip3 install -r requirements.txt
 ```
 ## Run the Bot
-- Insert your IMAP credentials to .env, example:
+- Insert your IMAP credentials and 2Captcha key to .env, example:
 ```bash
 EMAIL_ADDRESS = "youremail@gmail.com"
 PASSWORD = "xxxx xxxx xxxx xxxx"
+2CAPTCHA_KEY = "your2captchakey"
 ```
 - Replace the proxies ```proxies.txt``` to your own proxies, with the format example is like:
 ```bash
