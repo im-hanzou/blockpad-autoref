@@ -3,3 +3,4 @@ names
 fake-useragent
 colorama
 python-dotenv
+2captcha-python
