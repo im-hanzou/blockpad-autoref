@@ -6,7 +6,8 @@ Blockpad Testnet autoreferral using gmail imap and proxies
 2. Blockpad Account Referral code, ex: `V779JC`
 3. [2Captcha](https://2captcha.com/?from=24541144) API keys, you need to recharge credits. Register here: [2captcha.com](https://2captcha.com/?from=24541144)
 4. Gmail IMAP Accounts, Tutorial how to get your imap credentials, here: [YouTube](https://www.youtube.com/watch?v=pgoLc7TuHi8&ab_channel=TheKingofOnlineTools)
-5. VPS or RDP (OPTIONAL)
+5. VPS or RDP (OPTIONAL), Get free $200 credit [DigitalOcean](https://m.do.co/c/3f132e0f7e13) for 60 days here: [Register](https://m.do.co/c/3f132e0f7e13)
+6. Python3 Latest
 ### Buy Proxies
 - Free Proxies Static Residental: 
 1. [WebShare](https://www.webshare.io/?referral_code=p7k7whpdu2jg)
